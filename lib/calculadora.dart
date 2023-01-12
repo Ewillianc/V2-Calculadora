@@ -18,18 +18,17 @@ class _CalculadoraState extends State<Calculadora> {
         color: btnColor,
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Center(
         child: GestureDetector(
           onTap: () => {
             Calculadora(btnText)
           },
           child: Text(
             btnText,
-            style: TextStyle(fontSize: 50, color: txtColor),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 50, color: txtColor,  ),
           ),
         ),
-      ),
-    );
+      );
     /* ElevatedButton(
       onPressed: () => {},
       style: ElevatedButton.styleFrom(
@@ -159,7 +158,7 @@ class _CalculadoraState extends State<Calculadora> {
   String result = "";
   String text = "";
   String operation = "";
-  
+
   void Calculadora(String btnText) {
     if (btnText == "C") {
       result = "0";
