@@ -196,6 +196,7 @@ class _CalculadoraState extends State<Calculadora> {
       }
     }else{
       result = int.parse(text + btnText).toString();
+      
     }
     setState(() {
       text = result;
