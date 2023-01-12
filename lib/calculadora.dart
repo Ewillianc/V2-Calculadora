@@ -170,11 +170,11 @@ class _CalculadoraState extends State<Calculadora> {
 
   void Calculadora(String btnText) {
     if (btnText == "C") {
-      result = "";
-      text = "";
+      result = "0";
+      text = "0";
       firstNumber = 0;
       secondNumber = 0;
-      visor = "0";
+
     } else if (btnText == "+" || btnText == "-" || btnText == "/" || btnText == "x") {
       result = "";
       operation = btnText;
