@@ -159,9 +159,7 @@ class _CalculadoraState extends State<Calculadora> {
   String result = "";
   String text = "";
   String operation = "";
-  String oper="";
-  String visor = "";
-
+  
   void Calculadora(String btnText) {
     if (btnText == "C") {
       result = "0";
@@ -194,7 +192,7 @@ class _CalculadoraState extends State<Calculadora> {
       
     }
     setState(() {
-      text = result;
+      text = result;   
     });
     
   }
