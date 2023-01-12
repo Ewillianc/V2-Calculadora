@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
+// ignore_for_file: prefer_const_constructors, avoid_print, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+
 
 class Calculadora extends StatefulWidget {
   const Calculadora({Key? key}) : super(key: key);
@@ -19,8 +20,8 @@ class _CalculadoraState extends State<Calculadora> {
       ),
       child: Center(
         child: GestureDetector(
-          onTap: () {
-            print('click');
+          onTap: () => {
+            Calculadora(btnText)
           },
           child: Text(
             btnText,
@@ -66,7 +67,7 @@ class _CalculadoraState extends State<Calculadora> {
                 Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    "0",
+                    text,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Color.fromARGB(255, 255, 62, 152),
@@ -141,10 +142,10 @@ class _CalculadoraState extends State<Calculadora> {
                   child: Center(
                     child: GestureDetector(
                       onTap: () {
-                        print('click');
+                    
                       },
                       child: Text(
-                        '0',
+                        "0",
                         style: TextStyle(fontSize: 50, color: Colors.black38),
                       ),
                     ),
@@ -158,5 +159,47 @@ class _CalculadoraState extends State<Calculadora> {
         ),
       ),
     );
+  }
+  
+  int firstNumber = 0;
+  int secondNumber = 0;
+  String result = "";
+  String text = "";
+  String operation = "";
+  String visor = "";
+
+  void Calculadora(String btnText) {
+    if (btnText == "C") {
+      result = "";
+      text = "";
+      firstNumber = 0;
+      secondNumber = 0;
+      visor = "0";
+    } else if (btnText == "+" || btnText == "-" || btnText == "/" || btnText == "x") {
+      result = "";
+      operation = btnText;
+      firstNumber = int.parse(text);
+    } else if (btnText == "=") {
+      print(text);
+      secondNumber = int.parse(text);
+      if (operation == "+") {
+        result = (firstNumber + secondNumber).toString();
+      }
+      if(operation == "-") {
+        result = (firstNumber - secondNumber).toString();
+      }
+      if(operation == "x") {
+        result = (firstNumber * secondNumber).toString();
+      }
+      if(operation == "/") {
+        result = (firstNumber ~/ secondNumber).toString();
+      }
+    }else{
+      result = int.parse(text + btnText).toString();
+    }
+    setState(() {
+      text = result;
+    });
+    
   }
 }
