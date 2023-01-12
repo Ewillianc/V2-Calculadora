@@ -74,6 +74,16 @@ class _CalculadoraState extends State<Calculadora> {
                         fontSize: 110),
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    operation,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 255, 62, 152),
+                        fontSize: 110),
+                  ),
+                ),
               ],
             ),
             Row(
@@ -132,26 +142,9 @@ class _CalculadoraState extends State<Calculadora> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  height: 100,
-                  width: 340,
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                    
-                      },
-                      child: Text(
-                        "0",
-                        style: TextStyle(fontSize: 50, color: Colors.black38),
-                      ),
-                    ),
-                  ),
-                ),
+                numButton('0', Colors.yellow, Colors.black38),
                 numButton('.', Colors.yellow, Colors.black38),
+                numButton('?', Colors.yellow, Colors.black38),
                 numButton('=', Colors.yellow, Colors.black38)
               ],
             ),
@@ -166,6 +159,7 @@ class _CalculadoraState extends State<Calculadora> {
   String result = "";
   String text = "";
   String operation = "";
+  String oper="";
   String visor = "";
 
   void Calculadora(String btnText) {
@@ -174,6 +168,7 @@ class _CalculadoraState extends State<Calculadora> {
       text = "0";
       firstNumber = 0;
       secondNumber = 0;
+      operation = "";
 
     } else if (btnText == "+" || btnText == "-" || btnText == "/" || btnText == "x") {
       result = "";
